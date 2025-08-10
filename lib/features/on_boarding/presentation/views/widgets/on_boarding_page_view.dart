@@ -3,11 +3,20 @@ import 'package:ecommerce_app/features/on_boarding/presentation/views/widgets/pa
 import 'package:flutter/material.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView({super.key});
+  const OnBoardingPageView({
+    super.key,
+    required this.pageController,
+    // this.onPageChanged,
+  });
+
+  final PageController pageController;
+  // final Function(int)? onPageChanged;
 
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: pageController,
+      // onPageChanged: onPageChanged,
       children: [
         PageViewItem(
           title: Row(
@@ -17,8 +26,14 @@ class OnBoardingPageView extends StatelessWidget {
               'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
           image: Assets.imagesPageViewItem1ImageSvg,
           bkImage: Assets.imagesPageViewItem1BkImage,
+          isVisible:
+              (pageController.hasClients ? pageController.page!.round() : 0) ==
+              0,
         ),
         PageViewItem(
+          isVisible:
+              (pageController.hasClients ? pageController.page!.round() : 0) ==
+              0,
           title: Text(
             'ابحث وتسوق',
             textAlign: TextAlign.center,
