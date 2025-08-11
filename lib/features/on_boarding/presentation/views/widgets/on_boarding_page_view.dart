@@ -44,13 +44,11 @@ class OnBoardingPageView extends StatelessWidget {
           image: Assets.imagesPageViewItem1ImageSvg,
           bkImage: Assets.imagesPageViewItem1BkImage,
           isVisible:
-              (pageController.hasClients ? pageController.page!.round() : 0) ==
-              0,
+              true,
         ),
         PageViewItem(
           isVisible:
-              (pageController.hasClients ? pageController.page!.round() : 0) ==
-              0,
+              false,
           title: Text(
             'ابحث وتسوق',
             textAlign: TextAlign.center,
