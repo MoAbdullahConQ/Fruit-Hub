@@ -1,10 +1,12 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/utils/app_colors.dart';
+import 'package:ecommerce_app/core/utils/app_images.dart';
 import 'package:ecommerce_app/core/utils/app_text_style.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/dont_have_account_widget.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/or_divider.dart';
+import 'package:ecommerce_app/features/auth/presentation/views/widgets/social_button_login.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -12,9 +14,9 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +52,26 @@ class LoginViewBody extends StatelessWidget {
               SizedBox(height: 33),
               DontHaveAccountWidget(),
               SizedBox(height: 33),
-              OrDivider()
+              OrDivider(),
+              SizedBox(height: 16),
+              SocialButtonLogin(
+                onPressed: () {},
+                title: 'تسجيل بواسطة جوجل',
+                image: Assets.imagesGoogleIocn,
+              ),
+              SizedBox(height: 16),
+              SocialButtonLogin(
+                onPressed: () {},
+                title: 'تسجيل بواسطة أبل',
+                image: Assets.imagesAppleIocn,
+              ),
+              SizedBox(height: 16),
+              SocialButtonLogin(
+                onPressed: () {},
+                title: 'تسجيل بواسطة فيسبوك',
+                image: Assets.imagesFacebookIocn,
+              ),
+              SizedBox(height: 16),
             ],
           ),
         ),
