@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/utils/app_colors.dart';
+import 'package:ecommerce_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -13,19 +14,18 @@ class CustomButton extends StatelessWidget {
       height: 54,
       width: double.infinity,
       child: TextButton(
-        
         style: TextButton.styleFrom(
-          
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16)
+            borderRadius: BorderRadius.circular(16),
           ),
-          
-          backgroundColor: AppColors.primaryColor
+
+          backgroundColor: AppColors.primaryColor,
         ),
         onPressed: onPressed,
-        child: Text(text, style: TextStyle(
-          color: Colors.white
-        )),
+        child: Text(
+          text,
+          style: TextStyles.bold16.copyWith(color: Colors.white),
+        ),
       ),
     );
   }
