@@ -1,0 +1,44 @@
+import 'package:ecommerce_app/core/utils/app_text_style.dart';
+import 'package:flutter/material.dart';
+
+class CustomTextFormField extends StatelessWidget {
+  const CustomTextFormField({
+    super.key,
+    required this.hintText,
+    required this.keyboardType,  this.suffixIcon,
+  });
+
+  final String hintText;
+  final TextInputType keyboardType;
+
+ final Widget? suffixIcon;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 342,
+      height: 56,
+      child: TextFormField(
+        
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          suffixIcon: suffixIcon,
+          border: buildBorder(),
+          enabledBorder: buildBorder(),
+          focusedBorder: buildBorder(),
+          fillColor: const Color(0xFFF9FAFA),
+          filled: true,
+          hintText: hintText,
+          hintStyle: TextStyles.bold13.copyWith(color: const Color(0xFF949D9E)),
+        ),
+      ),
+    );
+  }
+
+  OutlineInputBorder buildBorder() {
+    return OutlineInputBorder(
+      borderSide: BorderSide(color: const Color(0xFFE6E9E9), width: 1),
+      borderRadius: BorderRadius.circular(4),
+    );
+  }
+}
