@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce_app/features/auth/domain/entites/user_entity.dart';
 import 'package:ecommerce_app/features/auth/domain/repos/auth_repo.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
 part 'signup_state.dart';
