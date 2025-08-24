@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-  
+
   /// Assets for imagesAppIcon
   /// assets/images/app_icon.png
   static const String imagesAppIcon = "assets/images/app_icon.png";
@@ -9,6 +9,10 @@ class Assets {
   /// Assets for imagesAppleIocn
   /// assets/images/apple_iocn.svg
   static const String imagesAppleIocn = "assets/images/apple_iocn.svg";
+
+  /// Assets for imagesCheck
+  /// assets/images/check.svg
+  static const String imagesCheck = "assets/images/check.svg";
 
   /// Assets for imagesFacebookIocn
   /// assets/images/facebook_iocn.svg
@@ -24,19 +28,23 @@ class Assets {
 
   /// Assets for imagesPageViewItem1BkImage
   /// assets/images/page_view_item1_bk_image.svg
-  static const String imagesPageViewItem1BkImage = "assets/images/page_view_item1_bk_image.svg";
+  static const String imagesPageViewItem1BkImage =
+      "assets/images/page_view_item1_bk_image.svg";
 
   /// Assets for imagesPageViewItem1ImageSvg
   /// assets/images/page_view_item1_image.svg.svg
-  static const String imagesPageViewItem1ImageSvg = "assets/images/page_view_item1_image.svg.svg";
+  static const String imagesPageViewItem1ImageSvg =
+      "assets/images/page_view_item1_image.svg.svg";
 
   /// Assets for imagesPageViewItem2BkImage
   /// assets/images/page_view_item2_bk_image.svg
-  static const String imagesPageViewItem2BkImage = "assets/images/page_view_item2_bk_image.svg";
+  static const String imagesPageViewItem2BkImage =
+      "assets/images/page_view_item2_bk_image.svg";
 
   /// Assets for imagesPageViewItem2ImageSvg
   /// assets/images/page_view_item2_image.svg.svg
-  static const String imagesPageViewItem2ImageSvg = "assets/images/page_view_item2_image.svg.svg";
+  static const String imagesPageViewItem2ImageSvg =
+      "assets/images/page_view_item2_image.svg.svg";
 
   /// Assets for imagesPlant
   /// assets/images/plant.svg
@@ -46,4 +54,3 @@ class Assets {
   /// assets/images/splash_bottom.svg
   static const String imagesSplashBottom = "assets/images/splash_bottom.svg";
 }
-
