@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/helper_functions/on_generate_routes.dart';
+import 'package:ecommerce_app/core/services/get_it_service.dart';
 import 'package:ecommerce_app/core/services/shared_preferences_singleton.dart';
 import 'package:ecommerce_app/core/utils/app_colors.dart';
 import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
@@ -13,6 +14,7 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   WidgetsFlutterBinding.ensureInitialized();
   await Prefs().init();
+  setupGetIt();
   runApp(const MyApp());
 }
 
