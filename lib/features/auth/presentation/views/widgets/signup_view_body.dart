@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
+import 'package:ecommerce_app/core/widgets/password_field.dart';
 import 'package:ecommerce_app/features/auth/presentation/cubits/signup_cubits/signup_cubit.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/have_account_widget.dart';
@@ -46,16 +47,10 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   keyboardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 16),
-                CustomTextFormField(
+                PasswordField(
                   onSaved: (value) {
                     password = value!;
                   },
-                  suffixIcon: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.remove_red_eye, color: Color(0xFFC9CECF)),
-                  ),
-                  hintText: 'كلمة المرور',
-                  keyboardType: TextInputType.visiblePassword,
                 ),
                 SizedBox(height: 16),
                 TermsAndConditions(),
