@@ -22,15 +22,49 @@ class FirebaseAuthService {
         throw CustomExeptions(
           message: 'لديك حساب بالفعل لهذا البريد الإلكتروني.',
         );
-      }else if(e.code == 'network-request-failed'){
+      } else if (e.code == 'network-request-failed') {
         throw CustomExeptions(message: 'لا يوجد اتصال بالإنترنت.');
-      } 
-      else {
+      } else {
         throw CustomExeptions(message: 'لقد حدث خطأ ما. حاول مرة أخرى.');
       }
     } catch (e) {
       log(
         "Exeption in FirebaseAuthService.createUserWithEmailAndPassword: ${e.toString()}",
+      );
+      throw CustomExeptions(message: 'لقد حدث خطأ ما. حاول مرة أخرى.');
+    }
+  }
+
+  Future<User> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      log(
+        "Exeption in FirebaseAuthService.signInWithEmailAndPassword: ${e.toString()} ${e.code}",
+      );
+      if (e.code == 'user-not-found') {
+        throw CustomExeptions(
+          message: 'البريد الإلكتروني أو كلمة المرور غير صحيحة.',
+        );
+      } else if (e.code == 'wrong-password') {
+        throw CustomExeptions(
+          message: 'البريد الإلكتروني أو كلمة المرور غير صحيحة.',
+        );
+      } else if (e.code == 'network-request-failed') {
+        throw CustomExeptions(message: 'لا يوجد اتصال بالإنترنت.');
+      } else {
+        throw CustomExeptions(message: 'لقد حدث خطأ ما. حاول مرة أخرى.');
+      }
+    } catch (e) {
+      log(
+        "Exeption in FirebaseAuthService.signInWithEmailAndPassword: ${e.toString()}",
       );
       throw CustomExeptions(message: 'لقد حدث خطأ ما. حاول مرة أخرى.');
     }
