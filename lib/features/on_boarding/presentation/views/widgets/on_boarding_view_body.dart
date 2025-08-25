@@ -4,7 +4,7 @@ import 'package:ecommerce_app/core/helper_functions/on_generate_routes.dart';
 import 'package:ecommerce_app/core/services/shared_preferences_singleton.dart';
 import 'package:ecommerce_app/core/utils/app_colors.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
-import 'package:ecommerce_app/features/auth/presentation/views/login_view.dart';
+import 'package:ecommerce_app/features/auth/presentation/views/signin_view.dart';
 import 'package:ecommerce_app/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 import 'package:flutter/material.dart';
 
@@ -74,7 +74,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               onPressed: () {
 
                 Prefs.setBool(kIsOnBoardingViewSeenKey, true);
-                Navigator.pushReplacementNamed(context, LoginView.routeName);
+                Navigator.pushReplacementNamed(context, SignInView.routeName);
               },
               text: 'ابدأ الان',
             ),

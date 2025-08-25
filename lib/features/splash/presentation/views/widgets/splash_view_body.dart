@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/services/shared_preferences_singleton.dart';
 import 'package:ecommerce_app/core/utils/app_images.dart';
-import 'package:ecommerce_app/features/auth/presentation/views/login_view.dart';
+import 'package:ecommerce_app/features/auth/presentation/views/signin_view.dart';
 import 'package:ecommerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -41,7 +41,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     bool isOnBoardingViewSeen = Prefs.getBool(kIsOnBoardingViewSeenKey);
     Future.delayed(Duration(seconds: 3), () {
       if (isOnBoardingViewSeen) {
-        Navigator.pushReplacementNamed(context, LoginView.routeName);
+        Navigator.pushReplacementNamed(context, SignInView.routeName);
       } else {
         Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
       }

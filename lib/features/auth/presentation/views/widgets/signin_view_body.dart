@@ -9,8 +9,8 @@ import 'package:ecommerce_app/features/auth/presentation/views/widgets/or_divide
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/social_button_login.dart';
 import 'package:flutter/material.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class SignInViewBody extends StatelessWidget {
+  const SignInViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
