@@ -4,7 +4,6 @@ import 'package:ecommerce_app/features/auth/presentation/cubits/signin_cubits/si
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/signin_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignInViewBodyBlocConsumer extends StatelessWidget {
   const SignInViewBodyBlocConsumer({super.key});
@@ -14,6 +13,7 @@ class SignInViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SigninCubit, SigninState>(
       listener: (context, state) {
         if (state is SigninSuccess) {
+          print('Signed in successfully====================================================');
           // Navigate to the next screen or show a success message
         }
         if (state is SigninFailure) {
