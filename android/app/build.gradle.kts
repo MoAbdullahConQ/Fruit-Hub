@@ -41,11 +41,10 @@ android {
         }
     }
 }
-
 dependencies {
-    implementation 'com.facebook.android:facebook-login:latest.release'
-
+    implementation("com.facebook.android:facebook-login:16.3.0")
 }
+
 
 flutter {
     source = "../.."
