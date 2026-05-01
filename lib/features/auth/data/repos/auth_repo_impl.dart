@@ -110,6 +110,7 @@ class AuthRepoImpl extends AuthRepo {
     await databaseService.addData(
       path: BackendEndpoints.addUserData,
       data: user.toMap(),
+      documentId: user.uId,
     );
   }
 
