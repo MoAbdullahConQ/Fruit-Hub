@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_app/core/errors/custom_exeptions.dart';
 import 'package:ecommerce_app/core/errors/failures.dart';
@@ -81,7 +80,15 @@ class AuthRepoImpl extends AuthRepo {
     try {
       user = await firebaseAuthService.signInWithGoogle();
       var userEntity = UserModel.fromFirebaseUser(user);
-      await addUserData(user: userEntity);
+      var isUserExists = await databaseService.checkIfDataExists(
+        path: BackendEndpoints.isUserExists,
+        documentId: user.uid,
+      );
+      if (isUserExists) {
+        await getUserData(uid: user.uid);
+      } else {
+        await addUserData(user: userEntity);
+      }
       return Right(userEntity);
     } catch (e) {
       await deleteUser(user);
@@ -96,7 +103,15 @@ class AuthRepoImpl extends AuthRepo {
     try {
       user = await firebaseAuthService.signInWithFacebook();
       var userEntity = UserModel.fromFirebaseUser(user);
-      await addUserData(user: userEntity);
+      var isUserExists = await databaseService.checkIfDataExists(
+        path: BackendEndpoints.isUserExists,
+        documentId: user.uid,
+      );
+      if (isUserExists) {
+        await getUserData(uid: user.uid);
+      } else {
+        await addUserData(user: userEntity);
+      }
       return Right(userEntity);
     } catch (e) {
       await deleteUser(user);
