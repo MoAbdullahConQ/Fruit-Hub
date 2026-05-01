@@ -36,18 +36,20 @@ class AuthRepoImpl extends AuthRepo {
       await addUserData(user: userEntity);
       return Right(userEntity);
     } on CustomExeptions catch (e) {
-      if (user != null) {
-        await user.delete();
-      }
+      await deleteUser(user);
       return Left(ServerFailure(e.message));
     } catch (e) {
-      if (user != null) {
-        await user.delete();
-      }
+      await deleteUser(user);
       log(
         "Exception in AuthRepoImpl.createUserWithEmailAndPassword: ${e.toString()}",
       );
       return Left(ServerFailure('لقد حدث خطأ ما، يرجى المحاولة مرة أخرى'));
+    }
+  }
+
+  Future<void> deleteUser(User? user) async {
+    if (user != null) {
+      await user.delete();
     }
   }
 
@@ -74,10 +76,14 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    User? user;
     try {
-      var user = await firebaseAuthService.signInWithGoogle();
-      return Right(UserModel.fromFirebaseUser(user));
+      user = await firebaseAuthService.signInWithGoogle();
+      var userEntity = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userEntity);
+      return Right(userEntity);
     } catch (e) {
+      await deleteUser(user);
       log("Exception in AuthRepoImpl.signInWithGoogle: ${e.toString()}");
       return Left(ServerFailure('لقد حدث خطأ ما، يرجى المحاولة مرة أخرى'));
     }
@@ -85,10 +91,14 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    User? user;
     try {
-      var user = await firebaseAuthService.signInWithFacebook();
-      return Right(UserModel.fromFirebaseUser(user));
+      user = await firebaseAuthService.signInWithFacebook();
+      var userEntity = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userEntity);
+      return Right(userEntity);
     } catch (e) {
+      await deleteUser(user);
       log("Exception in AuthRepoImpl.signInWithFacebook: ${e.toString()}");
       return Left(ServerFailure('لقد حدث خطأ ما، يرجى المحاولة مرة أخرى'));
     }
