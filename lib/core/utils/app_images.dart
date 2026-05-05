@@ -18,6 +18,10 @@ class Assets {
   /// assets/images/facebook_iocn.svg
   static const String imagesFacebookIocn = "assets/images/facebook_iocn.svg";
 
+  /// Assets for imagesFilter
+  /// assets/images/filter.svg
+  static const String imagesFilter = "assets/images/filter.svg";
+
   /// Assets for imagesGoogleIocn
   /// assets/images/google_iocn.svg
   static const String imagesGoogleIocn = "assets/images/google_iocn.svg";
@@ -54,7 +58,12 @@ class Assets {
   /// assets/images/profile_image.png
   static const String imagesProfileImage = "assets/images/profile_image.png";
 
+  /// Assets for imagesSearch
+  /// assets/images/search.svg
+  static const String imagesSearch = "assets/images/search.svg";
+
   /// Assets for imagesSplashBottom
   /// assets/images/splash_bottom.svg
   static const String imagesSplashBottom = "assets/images/splash_bottom.svg";
 }
+
