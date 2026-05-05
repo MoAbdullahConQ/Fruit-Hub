@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/constants.dart';
-import 'package:ecommerce_app/core/widgets/fruit_item.dart';
 import 'package:ecommerce_app/core/widgets/search_text_field.dart';
+import 'package:ecommerce_app/features/home/presentation/views/widgets/best_selling_grid_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/best_selling_header.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/featured_list.dart';
@@ -26,10 +26,11 @@ class HomeViewBody extends StatelessWidget {
                 FeaturedList(),
                 SizedBox(height: 12),
                 BestSellingHeader(),
-                FruitItem()
+                SizedBox(height: 8),
               ],
             ),
           ),
+          BestSellingGridView(),
           // Add more slivers here as needed
         ],
       ),

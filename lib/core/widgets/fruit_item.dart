@@ -9,8 +9,6 @@ class FruitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 220,
-      height: 300,
       decoration: ShapeDecoration(
         color: const Color(0xFFF3F5F7),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
@@ -30,9 +28,13 @@ class FruitItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 20),
-                Image.asset(
-                  Assets.imagesWatermelonTest,
-                  fit: BoxFit.fill,
+                Center(
+                  child: Image.asset(
+                    Assets.imagesWatermelonTest,
+                    width: 131,
+                    height: 99,
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 SizedBox(height: 24),
                 ListTile(
