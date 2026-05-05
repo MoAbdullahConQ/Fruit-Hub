@@ -75,6 +75,10 @@ abstract class TextStyles {
     fontWeight: FontWeight.w400,
     fontSize: 13,
   );
+  static const TextStyle semiBold11 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 11,
+  );
   static const TextStyle semiBold13 = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 13,
