@@ -10,7 +10,7 @@ class FeaturedItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var itemWidth = MediaQuery.sizeOf(context).width;
+    var itemWidth = MediaQuery.sizeOf(context).width - 32;
     return ClipRRect(
       borderRadius: BorderRadius.circular(4),
       child: SizedBox(
@@ -24,7 +24,10 @@ class FeaturedItem extends StatelessWidget {
                 bottom: 0,
                 top: 0,
                 right: itemWidth * 0.4,
-                child: SvgPicture.asset(Assets.imagesPageViewItem2ImageSvg, fit: BoxFit.fill),
+                child: SvgPicture.asset(
+                  Assets.imagesPageViewItem2ImageSvg,
+                  fit: BoxFit.fill,
+                ),
               ),
               Container(
                 width: itemWidth * 0.5,
@@ -42,7 +45,9 @@ class FeaturedItem extends StatelessWidget {
                       SizedBox(height: 25),
                       Text(
                         'عروض العيد',
-                        style: TextStyles.regular13.copyWith(color: Colors.white),
+                        style: TextStyles.regular13.copyWith(
+                          color: Colors.white,
+                        ),
                       ),
                       Spacer(),
                       Text(
