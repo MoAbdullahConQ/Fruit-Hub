@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/helper_functions/get_user.dart';
 import 'package:ecommerce_app/core/utils/app_images.dart';
 import 'package:ecommerce_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class CustomHomeAppBar extends StatelessWidget {
         style: TextStyles.regular16.copyWith(color: Color(0xFF949D9E)),
       ),
       subtitle: Text(
-        'أحمد مصطفي',
+        getUser().name,
         textAlign: TextAlign.right,
         style: TextStyles.bold16,
       ),
