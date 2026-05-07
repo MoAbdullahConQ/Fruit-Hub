@@ -31,6 +31,14 @@ class Prefs {
     return _instance._prefs!.getBool(key) ?? false;
   }
 
+  static setString(String key, String value) async {
+    await _instance._prefs!.setString(key, value);
+  }
+
+  static getString(String key) {
+    return _instance._prefs!.getString(key) ?? "";
+  }
+
   // Future<bool> remove(String key) async {
   //   return await prefs.remove(key);
   // }
