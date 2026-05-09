@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:ecommerce_app/core/entities/product_entity.dart';
 import 'package:ecommerce_app/core/models/review_model.dart';
 
 class ProductModel {
@@ -54,6 +55,21 @@ class ProductModel {
                 json['reviews'].map((e) => ReviewModel.fromJson(e)),
               )
               : [],
+    );
+  }
+
+  ProductEntity toEntity() {
+    return ProductEntity(
+      name: name,
+      code: code,
+      description: description,
+      price: price,
+      image: image,
+      isFeatured: isFeatured,
+      expirationsMonths: expirationsMonths,
+      numberOfCalories: numberOfCalories,
+      unitAmount: unitAmount,
+      reviews: reviews.map((e) => e.toEntity()).toList(),
     );
   }
 
