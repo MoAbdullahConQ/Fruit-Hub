@@ -23,21 +23,21 @@ class FruitItem extends StatelessWidget {
               icon: Icon(Icons.favorite_border_outlined),
             ),
           ),
-          Positioned.fill(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 20),
-                Center(
-                  child: Image.asset(
-                    Assets.imagesWatermelonTest,
-                    width: 131,
-                    height: 99,
-                    fit: BoxFit.fill,
-                  ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              Center(
+                child: Image.asset(
+                  Assets.imagesWatermelonTest,
+                  width: 131,
+                  height: 99,
+                  fit: BoxFit.fill,
                 ),
-                SizedBox(height: 24),
-                ListTile(
+              ),
+              SizedBox(height: 24),
+              Expanded(
+                child: ListTile(
                   title: Text('بطيخ', style: TextStyles.semiBold16),
                   subtitle: Text.rich(
                     TextSpan(
@@ -62,7 +62,6 @@ class FruitItem extends StatelessWidget {
                         ),
                       ],
                     ),
-                    // textAlign: TextAlign.right,
                   ),
                   trailing: CircleAvatar(
                     radius: 20,
@@ -70,8 +69,8 @@ class FruitItem extends StatelessWidget {
                     child: Icon(Icons.add, color: Colors.white),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
