@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:ecommerce_app/core/entities/product_entity.dart';
 
 ProductEntity getDummyProduct() {
@@ -10,7 +8,6 @@ ProductEntity getDummyProduct() {
     description: 'هذا وصف تجريبي للمنتج. يحتوي على تفاصيل حول المنتج ومميزاته.',
     imageUrl: 'https://via.placeholder.com/150',
     expirationsMonths: 6,
-    image: File(''),
     isFeatured: false,
     numberOfCalories: 200,
     unitAmount: 1,

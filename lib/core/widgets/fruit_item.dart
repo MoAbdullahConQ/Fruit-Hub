@@ -1,10 +1,12 @@
+import 'package:ecommerce_app/core/entities/product_entity.dart';
 import 'package:ecommerce_app/core/utils/app_colors.dart';
-import 'package:ecommerce_app/core/utils/app_images.dart';
 import 'package:ecommerce_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
+  const FruitItem({super.key, required this.productEntity});
+
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +30,28 @@ class FruitItem extends StatelessWidget {
             children: [
               SizedBox(height: 20),
               Center(
-                child: Image.asset(
-                  Assets.imagesWatermelonTest,
+                child: Image.network(
+                  productEntity.imageUrl ?? '',
                   width: 131,
                   height: 99,
                   fit: BoxFit.fill,
+                  errorBuilder:
+                      (context, error, stackTrace) => Icon(
+                        Icons.image_not_supported,
+                        size: 60,
+                        color: Colors.grey,
+                      ),
                 ),
               ),
               SizedBox(height: 24),
               Expanded(
                 child: ListTile(
-                  title: Text('بطيخ', style: TextStyles.semiBold16),
+                  title: Text(productEntity.name, style: TextStyles.semiBold16),
                   subtitle: Text.rich(
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: '20جنية ',
+                          text: '${productEntity.price} جنية ',
                           style: TextStyles.bold13.copyWith(
                             color: AppColors.secoundryColor,
                           ),

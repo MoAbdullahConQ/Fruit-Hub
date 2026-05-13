@@ -36,7 +36,7 @@ class FirestoreService implements DatabaseService {
         }
         if (query['limit'] != null) {
           var limit = query['limit'];
-          data.limit(limit);
+          data = data.limit(limit);
         }
       }
       var result = await data.get();

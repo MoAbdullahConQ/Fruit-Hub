@@ -1,5 +1,6 @@
-import 'dart:io';
 import 'package:ecommerce_app/core/entities/product_entity.dart';
+import 'package:ecommerce_app/core/entities/review_entity.dart';
+import 'package:ecommerce_app/core/helper_functions/get_avg_rating.dart';
 import 'package:ecommerce_app/core/models/review_model.dart';
 
 class ProductModel {
@@ -7,13 +8,12 @@ class ProductModel {
   final String code;
   final String description;
   final num price;
-  final File image;
   final bool isFeatured;
   String? imageUrl;
   final int expirationsMonths;
   final bool isOrganic;
   final int numberOfCalories;
-  final num avgRating = 0;
+  // final num avgRating;
   final num ratingCount = 0;
   final int unitAmount;
   final List<ReviewModel> reviews;
@@ -24,11 +24,11 @@ class ProductModel {
     required this.code,
     required this.description,
     required this.price,
-    required this.image,
     required this.isFeatured,
     this.imageUrl,
     required this.expirationsMonths,
     required this.numberOfCalories,
+    // required this.avgRating,
     required this.unitAmount,
     required this.isOrganic,
     required this.reviews,
@@ -41,7 +41,6 @@ class ProductModel {
       code: json['code'],
       description: json['description'],
       price: json['price'],
-      image: File(json['image']),
       isFeatured: json['isFeatured'],
       imageUrl: json['imageUrl'],
       expirationsMonths: json['expirationsMonths'],
@@ -49,6 +48,7 @@ class ProductModel {
       unitAmount: json['unitAmount'],
       isOrganic: json['isOrganic'],
       sellingCount: json['sellingCount'],
+      // avgRating: getAvgRating(json['reviews']),
       reviews:
           json['reviews'] != null
               ? List<ReviewModel>.from(
@@ -64,11 +64,11 @@ class ProductModel {
       code: code,
       description: description,
       price: price,
-      image: image,
       isFeatured: isFeatured,
       expirationsMonths: expirationsMonths,
       numberOfCalories: numberOfCalories,
       unitAmount: unitAmount,
+      imageUrl: imageUrl,
       reviews: reviews.map((e) => e.toEntity()).toList(),
     );
   }
