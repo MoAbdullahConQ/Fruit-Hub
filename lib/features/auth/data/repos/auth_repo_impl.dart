@@ -36,6 +36,7 @@ class AuthRepoImpl extends AuthRepo {
       );
       var userEntity = UserEntity(uId: user.uid, name: name, email: email);
       await addUserData(user: userEntity);
+      await saveUserData(user: userEntity);
       return Right(userEntity);
     } on CustomExeptions catch (e) {
       await deleteUser(user);
@@ -83,16 +84,17 @@ class AuthRepoImpl extends AuthRepo {
     User? user;
     try {
       user = await firebaseAuthService.signInWithGoogle();
-      var userEntity = UserModel.fromFirebaseUser(user);
+      UserEntity userEntity = UserModel.fromFirebaseUser(user);
       var isUserExists = await databaseService.checkIfDataExists(
         path: BackendEndpoints.isUserExists,
         documentId: user.uid,
       );
       if (isUserExists) {
-        await getUserData(uid: user.uid);
+        userEntity = await getUserData(uid: user.uid);
       } else {
         await addUserData(user: userEntity);
       }
+      await saveUserData(user: userEntity);
       return Right(userEntity);
     } catch (e) {
       await deleteUser(user);
@@ -106,16 +108,17 @@ class AuthRepoImpl extends AuthRepo {
     User? user;
     try {
       user = await firebaseAuthService.signInWithFacebook();
-      var userEntity = UserModel.fromFirebaseUser(user);
+      UserEntity userEntity = UserModel.fromFirebaseUser(user);
       var isUserExists = await databaseService.checkIfDataExists(
         path: BackendEndpoints.isUserExists,
         documentId: user.uid,
       );
       if (isUserExists) {
-        await getUserData(uid: user.uid);
+        userEntity = await getUserData(uid: user.uid);
       } else {
         await addUserData(user: userEntity);
       }
+      await saveUserData(user: userEntity);
       return Right(userEntity);
     } catch (e) {
       await deleteUser(user);
